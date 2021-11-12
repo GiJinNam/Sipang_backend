@@ -4,8 +4,8 @@ import cors from 'cors'
 import morgan from 'morgan'
 import hpp from 'hpp'
 import helmet from 'helmet'
-import { MONGO_URI } from './config'
-import gymRouter from './Router/gym'
+import { MONGO_URI } from './config/index.js'
+import gymRouter from './Router/gym.js'
 
 const app = express()
 const origin = 'http://localhost:3000'

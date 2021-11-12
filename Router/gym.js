@@ -1,6 +1,5 @@
 import express from 'express'
-import { async } from 'regenerator-runtime'
-import Gym from '../models/Gym'
+import Gym from '../models/Gym.js'
 
 const router = express.Router()
 
