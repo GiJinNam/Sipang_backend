@@ -9,6 +9,7 @@ import gymRouter from './Router/gym'
 
 const app = express()
 const origin = 'http://localhost:3000'
+const PORT = process.env.PORT || 5000
 
 app.use(hpp())
 app.use(helmet())
@@ -22,7 +23,7 @@ const server = async () => {
 		await mongoose.connect(MONGO_URI)
 		console.log('몽고 DB 연결성공!!')
 		app.use('/gym', gymRouter)
-		app.listen(5000, () => {
+		app.listen(PORT, () => {
 			return console.log('express 서버 시작합니ㅏ~~~~~~~')
 		})
 	} catch (error) {
