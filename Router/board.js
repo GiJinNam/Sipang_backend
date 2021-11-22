@@ -10,14 +10,12 @@ const router = express.Router()
 
 router.post('/', async (req, res) => {
 	try {
-		const { title, hits, like, content } = req.body
+		const { title, content } = req.body
 		if (!title || !content) {
 			return res.status(400).json({ message: '빈 값이 있으면 안됩니다..' })
 		}
 		const newBoard = await Board.create({
 			title: title,
-			hits: hits,
-			like: like,
 			content: content
 		})
 		newBoard.save()
