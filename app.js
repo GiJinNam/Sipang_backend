@@ -7,6 +7,7 @@ import helmet from 'helmet'
 import { MONGO_URI, COOKIE_SECRET } from './config/index'
 import gymRouter from './router/gym'
 import userRouter from './router/user'
+import boardRouter from './router/board'
 import passport from 'passport'
 import session from 'express-session'
 import cookieParser from 'cookie-parser'
@@ -44,6 +45,7 @@ const server = async () => {
 		passportConfig()
 		app.use('/gym', gymRouter)
 		app.use('/user', userRouter)
+		app.use('/board', boardRouter)
 		app.listen(PORT, () => {
 			return console.log('express 서버 시작합니ㅏ~~~~~~~')
 		})

@@ -9,13 +9,14 @@ const router = express.Router()
  * 회원가입
  */
 
+/*
 //회원정보 만들기.
 //GET /user
 router.get('/', async (req, res) => {
 	try {
 		if (req.user) {
 			const user = await User.findOne({ id: req.user.id })
-			return res.status(200).json(user)
+			return res.status(200).json(user) // 
 		} else {
 			return res.status(200).json(null)
 		}
@@ -24,8 +25,10 @@ router.get('/', async (req, res) => {
 		return res.status(500).json(error)
 	}
 })
+*/
 
 // POST /user
+// 회원가입시 이메일 중복 체크 및 빈값 체크용도
 router.post('/', isNotLoggedIn, async (req, res) => {
 	try {
 		const { email, name, password } = req.body
