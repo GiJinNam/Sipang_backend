@@ -41,4 +41,19 @@ router.get('/', async (req, res) => {
 	}
 })
 
+/**
+ * GET /:id
+ * 개별 게시물 프론트에 뿌려주는 라우터
+ */
+router.get('/:id', async (req, res) => {
+	try {
+		const { id } = req.params
+		await Board.updateOne({ id: id })
+		const board = await Board.findOne({ id: id })
+		return res.status(200).json(board)
+	} catch (error) {
+		console.error(error)
+		return res.status(500).json(error)
+	}
+})
 export default router
