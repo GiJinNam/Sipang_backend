@@ -1,5 +1,6 @@
 import express from 'express'
 import Board from '../models/Board.js'
+import { isValidObjectId } from 'mongoose'
 
 const router = express.Router()
 
@@ -48,7 +49,11 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
 	try {
 		const { id } = req.params
-		const board = await Board.findOne({ id: id })
+		console.log(id)
+		if (!isValidObjectId(id)) {
+			return res.status(400).send({ err: '잘못된 id정보' })
+		}
+		const board = await Board.findById(id)
 		return res.status(200).json(board)
 	} catch (error) {
 		console.error(error)
