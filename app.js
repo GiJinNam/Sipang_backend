@@ -8,6 +8,8 @@ import { MONGO_URI, COOKIE_SECRET } from './config/index'
 import gymRouter from './router/gym'
 import userRouter from './router/user'
 import boardRouter from './router/board'
+import openApiRouter from './router/openApi'
+import comment from './router/comment'
 import passport from 'passport'
 import session from 'express-session'
 import cookieParser from 'cookie-parser'
@@ -46,6 +48,8 @@ const server = async () => {
 		app.use('/gym', gymRouter)
 		app.use('/user', userRouter)
 		app.use('/board', boardRouter)
+		app.use('/openApi', openApiRouter)
+		app.use('/comment', comment)
 		app.listen(PORT, () => {
 			return console.log('express 서버 시작합니ㅏ~~~~~~~')
 		})

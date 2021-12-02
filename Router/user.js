@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import User from '../models/User'
 import passport from 'passport'
 import { isLoggedIn, isNotLoggedIn } from '../middleware/auth'
+
 const router = express.Router()
 
 /*
@@ -88,4 +89,31 @@ router.post('/logout', isLoggedIn, (req, res) => {
 	return res.status(200).json({ message: '로그아웃 되었습니다!!' })
 })
 
+// GET /user/auth/naver
+/* naver 로그인 연동
+ *
+ */
+/**
+
+router.get(
+	'auth/naver',
+	passport.authenticate('naver', null),
+	function (req, res) {
+		console.log('/main/naver')
+	}
+)
+*/
+router.get(
+	'/auth/naver',
+	passport.authenticate('naver', { scope: ['profile', 'email'] })
+)
+
+//처리 후 callback 처리 부분 성공/실패 시 리다이렉트 설정
+router.get(
+	'/naver/callback',
+	passport.authenticate('naver', {
+		successRedirect: '/',
+		failureRedirect: '/auth/login'
+	})
+)
 export default router
