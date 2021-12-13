@@ -56,7 +56,7 @@ router.delete('/:boardId', async (req, res) => {
 		return res.status(200).json({ message: '삭제완료' })
 	} catch (error) {
 		console.error(error)
-		return res.status(500).send({ message: '삭제 완료 안됐음' })
+		return res.status(500).send({ message: '삭제 완료 안됐음요' })
 	}
 })
 
