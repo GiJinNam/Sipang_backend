@@ -45,4 +45,19 @@ router.get('/:boardId', async (req, res) => {
 	}
 })
 
+router.delete('/:boardId', async (req, res) => {
+	try {
+		const { boardId } = req.params
+		// if (!mongoose.isValidObjectId(boardId)) {
+		// 	return res.status(400).json({ message: '잘못된 게시물 번호입니다.' })
+		// }
+		// const comment = await Comment.findById(boardId)
+		await Comment.findByIdAndDelete(boardId)
+		return res.status(200).json({ message: '삭제완료' })
+	} catch (error) {
+		console.error(error)
+		return res.status(500).send({ message: '삭제 완료 안됐음' })
+	}
+})
+
 export default router
