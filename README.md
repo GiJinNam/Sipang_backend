@@ -5,7 +5,11 @@ GYM
 ------------------------
 + POST/gym
 
-|왼쪽 정렬|가운데 정렬|오른쪽 정렬| 
-|:---|:---:|---:| 
-|내용1|내용2|내용3| 
-|내용1|내용2|내용3| 
+|허용타입|aplication/json|| 
+|:---|:---:|:---|:---| 
+|parameter|type|description|defalut|
+|name|String|체육관 이름|True|
+|address|String|체육관 주소|True|
+|tel|String|체육관 번호|True|
+|coat|Number|체육관 코트수|True|
+|price|Number|체육관 값|True|
