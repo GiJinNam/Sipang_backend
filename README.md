@@ -5,7 +5,7 @@ GYM
 ------------------------
 + POST/gym
 
-|허용타입|aplication/json|| 
+|허용타입|aplication/json|
 |:---|:---:|:---|:---| 
 |parameter|type|description|defalut|
 |name|String|체육관 이름|True|
