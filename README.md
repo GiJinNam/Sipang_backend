@@ -12,4 +12,4 @@ GYM
 |address|String|체육관 주소| True |
 |tel|String|체육관 전화번호| True |
 |coat|Number|체육관 코드 수| True |
-|price|Number|체육관 값| True |
+|price|Number|체육관 값| True | 
